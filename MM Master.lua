@@ -18,9 +18,9 @@ update_state = false
 local update_url          = 'https://raw.githubusercontent.com/GalanteMcWoozie/scripts/master/update.ini'
 local update_path         = getWorkingDirectory() .. "/update.ini"
 
-local script_url          = ''
+local script_url          = 'https://raw.githubusercontent.com/GalanteMcWoozie/scripts/master/MM%20Master.lua'
 local script_path         = thisScript().path
-local script_vers         = 1.01
+local script_vers         = 1.02
 
 local MColor              = 0xFFFFFF
 local main_window_state   = imgui.ImBool(false)
@@ -139,5 +139,7 @@ print("Checking updates for script")
 				thisScript():reload()
 			end
 		end)
+		break
 	end
 end
+-- new string
