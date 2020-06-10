@@ -18,7 +18,7 @@ update_state = false
 local update_url          = 'https://raw.githubusercontent.com/GalanteMcWoozie/scripts/master/update.ini'
 local update_path         = getWorkingDirectory() .. "/update.ini"
 
-local script_url          = 'https://raw.githubusercontent.com/GalanteMcWoozie/scripts/master/MM%20Master.lua'
+-- local script_url          = 'https://raw.githubusercontent.com/GalanteMcWoozie/scripts/master/MM%20Master.lua'
 local script_path         = thisScript().path
 local script_vers         = 1.2
 
@@ -111,7 +111,7 @@ function main()
 
 	sampRegisterChatCommand("update", cmd_update)
 
-	notify.addNotify("{E57525}[MM Master] {FFFFFF}Г‡Г ГЇГіГ±ГЄ Г±ГЄГ°ГЁГЇГІГ ", "\nГ‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® ГЇГ®Г¤ГЈГ°ГіГ¦ГҐГ­\nГ’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї: {E57525}v." .. script_vers, 2, 2, 5)
+	notify.addNotify("{E57525}[MM Master] {FFFFFF}Скрипт запущен", "\nСкрипт успешно запущен­\nТекущая версия: {E57525}v." .. script_vers, 2, 2, 5)
 
 print("Checking updates for script")
 	downloadUrlToFile(update_url, update_path, function(id, status)
@@ -119,7 +119,7 @@ print("Checking updates for script")
 			print("update.ini was loaded")
 			updateIni = inicfg.load(nil, update_path)
 			if tonumber(updateIni.info.vers) > script_vers then
-				notify.addNotify("{E57525}[MM Master]{FFFFFF} ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", "ГЌГ Г©Г¤ГҐГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ: {E57525}v." .. tonumber(updateIni.info.vers) .. "\n(Г‘ГҐГ©Г·Г Г± ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­o: {e57525}v." .. script_vers .. "{FFFFFF})", 2, 2, 6)
+				notify.addNotify("{E57525}[MM Master]{FFFFFF} Доступно обновление на: {E57525}v." .. tonumber(updateIni.info.vers) .. "\n(Текущая версия: {e57525}v." .. script_vers .. "{FFFFFF})", 2, 2, 6)
 				print("Founded {e57525}new version")
 				print("Old version: {E57525}" .. script_vers)
 				print("New version: {E57525}" .. updateIni.info.vers)
@@ -135,7 +135,7 @@ print("Checking updates for script")
 		wait(0)
 		downloadUrlToFile(script_url, script_path, function(id, status)
 			if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-				sampAddChatMessage("{E57525}[MM Master]{FFFFFF} Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­ Г± {E57525}v." .. script_vers .. " {FFFFFF}Г­Г  {E57525}v." .. updateIni.info.vers, -1)
+				sampAddChatMessage("{E57525}[MM Master]{FFFFFF} Скрипт успешно обновлен с {E57525}v." .. script_vers .. " {FFFFFF}на {E57525}v." .. updateIni.info.vers, -1)
 				thisScript():reload()
 			end
 		end)
